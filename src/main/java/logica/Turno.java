@@ -1,25 +1,48 @@
 
 package logica;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+import java.io.Serializable;
 import java.util.Date;
 
-
-public class Turno {
+@Entity
+public class Turno implements Serializable {
     
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id_turno;
+    @Temporal(TemporalType.DATE)
     private Date fecha_turno;
-    private Date hora_turno;
+    private String hora_turno;
     private String afeccion;
-
+    
+    @ManyToOne
+    @JoinColumn (name="id_turno")
+    private Odontologo odonto;
+    
+    @ManyToOne
+    @JoinColumn (name="id_turno2")
+     private Paciente pacien;
+    
     public Turno() {
     }
 
-    public Turno(int id_turno, Date fecha_turno, Date hora_turno, String afeccion) {
+    public Turno(int id_turno, Date fecha_turno, String hora_turno, String afeccion, Odontologo odonto, Paciente pacien) {
         this.id_turno = id_turno;
         this.fecha_turno = fecha_turno;
         this.hora_turno = hora_turno;
         this.afeccion = afeccion;
+        this.odonto = odonto;
+        this.pacien = pacien;
     }
+
 
     public int getId_turno() {
         return id_turno;
@@ -37,13 +60,31 @@ public class Turno {
         this.fecha_turno = fecha_turno;
     }
 
-    public Date getHora_turno() {
+    public String getHora_turno() {
         return hora_turno;
     }
 
-    public void setHora_turno(Date hora_turno) {
+    public void setHora_turno(String hora_turno) {
         this.hora_turno = hora_turno;
     }
+
+    public Odontologo getOdonto() {
+        return odonto;
+    }
+
+    public void setOdonto(Odontologo odonto) {
+        this.odonto = odonto;
+    }
+
+    public Paciente getPacien() {
+        return pacien;
+    }
+
+    public void setPacien(Paciente pacien) {
+        this.pacien = pacien;
+    }
+
+
 
     public String getAfeccion() {
         return afeccion;

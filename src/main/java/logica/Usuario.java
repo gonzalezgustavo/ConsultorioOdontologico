@@ -1,9 +1,19 @@
 
 package logica;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import java.io.Serializable;
 
-public class Usuario {
+
+@Entity
+public class Usuario implements Serializable {
     
+    
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id_usuario;
     private String nombreUsuario;
     private String contrasenia;

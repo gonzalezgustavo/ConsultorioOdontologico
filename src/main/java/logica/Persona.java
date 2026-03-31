@@ -2,22 +2,36 @@
 package logica;
 
 import java.util.Date;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+import java.io.Serializable;
 
-
-public class Persona {
+@Entity
+@Inheritance (strategy= InheritanceType.TABLE_PER_CLASS)
+public class Persona implements Serializable {
     
-
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private int id_persona;
     private String dni;
     private String nombre;
     private String apellido;
     private String telefono;
     private String direccion;
+    @Temporal(TemporalType.DATE)
     private Date fecha_nac;
 
     public Persona() {
     }
 
-    public Persona(String dni, String nombre, String apellido, String telefono, String direccion, Date fecha_nac) {
+    public Persona(int id_persona, String dni, String nombre, String apellido, String telefono, String direccion, Date fecha_nac) {
+        this.id_persona = id_persona;
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -25,6 +39,15 @@ public class Persona {
         this.direccion = direccion;
         this.fecha_nac = fecha_nac;
     }
+
+    public int getId_persona() {
+        return id_persona;
+    }
+
+    public void setId_persona(int id_persona) {
+        this.id_persona = id_persona;
+    }
+
 
  
     public String getDni() {
