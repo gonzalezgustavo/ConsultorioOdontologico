@@ -75,6 +75,12 @@
             <version>2.7.12</version>
             <scope>provided</scope>
         </dependency>
+          <!-- EclipseLink 4.x — implementación JPA compatible con Jakarta -->
+    <dependency>
+        <groupId>org.eclipse.persistence</groupId>
+        <artifactId>eclipselink</artifactId>
+        <version>4.0.2</version>
+    </dependency>
     </dependencies>
     
      <build>
