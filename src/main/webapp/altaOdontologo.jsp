@@ -16,11 +16,7 @@
                                         <input type="text" class="form-control form-control-user" id="nombre"
                                             placeholder="Nombre">
                                     </div>
-                                     <div class="col-sm-6 mb-3">
-                                        <input type="text" class="form-control form-control-user" id="nombre"
-                                            placeholder="Nombre">
-                                    </div>
-                                     <div class="col-sm-6 mb-3">
+                                    <div class="col-sm-6 mb-3">
                                         <input type="text" class="form-control form-control-user" id="apellido"
                                             placeholder="Apellido">
                                     </div>
